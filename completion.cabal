@@ -25,6 +25,7 @@ executable completion
                        dawg >=0.11,
                        scotty >= 0.9,
                        text >= 1.2,
+                       wai-cors >= 0.2,
                        warp >= 3.0
 
   -- hs-source-dirs:      
