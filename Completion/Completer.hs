@@ -21,4 +21,5 @@ buildGraph :: [String] -> CompletionGraph
 buildGraph = Dawg.fromList . map (\s -> (s,()))
 
 completions :: Partial -> CompletionGraph -> [Completion]
-completions p = map (p++) . Dawg.keys . Dawg.submap p
+completions [] = const []
+completions p  = map (p++) . Dawg.keys . Dawg.submap (last $ words p)
