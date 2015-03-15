@@ -2,14 +2,14 @@
 
 module Completion.Service (service) where
 
-import Web.Scotty
-import Data.Text.Lazy (unpack)
-import Control.Applicative
+import Completion.Completer
 import Completion.Config
 import Completion.Types
-import Completion.Completer
-import Network.Wai.Middleware.Cors
+import Control.Applicative
+import Data.Text.Lazy (unpack)
 import Network.Wai.Handler.Warp (Port)
+import Network.Wai.Middleware.Cors
+import Web.Scotty
 
 service :: Port -> IO ()
 service p = buildGraph . words <$> readFile defaultDictionary >>= runScotty p
